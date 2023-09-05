@@ -1,0 +1,10 @@
+example_module:
+  version: VERSION
+  css:
+    theme:
+      css/example-module.css: {}
+  js:
+    js/example-module.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

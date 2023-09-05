@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function example_module_theme($existing, $type, $theme, $path) {
+  return [
+    'example_module_form' => [
+      'template' => 'example-module-form',
+      'render element' => 'form',
+    ],
+  ];
+}

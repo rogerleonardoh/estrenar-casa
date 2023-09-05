@@ -1,0 +1,14 @@
+form.example-module-form > div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form.example-module-form > div > div {
+  width: 50%;
+  padding: 10px;
+}
+
+form.example-module-form .result_message,
+form.example-module-form .result_message > div {
+  width: 100% !important;
+}

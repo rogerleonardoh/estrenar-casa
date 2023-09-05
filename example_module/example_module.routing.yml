@@ -1,0 +1,14 @@
+example_module.form:
+  path: '/example-module/form'
+  defaults:
+    _title: 'Registra usuario de ejemplo'
+    _form: '\Drupal\example_module\Form\ExampleForm'
+  requirements:
+    _access: 'TRUE'
+example_module.data:
+  path: '/example-module/data'
+  defaults:
+    _title: 'Usuarios de ejemplo'
+    _controller: '\Drupal\example_module\Controller\DataController::data'
+  requirements:
+    _access: 'TRUE'

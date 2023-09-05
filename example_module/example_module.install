@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function example_module_install() {
+  $schema = [
+    'description' => 'Tabla de usuarios del módulo Example Module.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'description' => 'Identificador único del usuario.',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ],
+      'nombre' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Nombre del usuario.',
+      ],
+      'identificacion' => [
+        'type' => 'int',
+        'description' => 'Identificación del usuario.',
+        'not null' => TRUE,
+        'length' => 15,
+        'default' => 0,
+      ],
+      'fecha' => [
+        'type' => 'int',
+        'description' => 'Fecha de registro del usuario.',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'cargo' => [
+        'type' => 'varchar',
+        'description' => 'Cargo del usuario.',
+        'not null' => TRUE,
+        'default' => 'Undefined',
+        'length' => 255,
+      ],
+      'estado' => [
+        'type' => 'int',
+        'description' => 'Estado del usuario.',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'size' => 'tiny',
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  \Drupal::database()->schema()->createTable('example_users', $schema);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function example_module_uninstall() {
+  if (\Drupal::database()->schema()->tableExists('example_users')) {
+    \Drupal::database()->schema()->dropTable('example_users');
+  }
+}
